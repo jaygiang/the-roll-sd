@@ -31,3 +31,35 @@ body {
     text-wrap: balance;
   }
 }
+
+/* Day Header */
+.fc-col-header {
+  background-color: black;
+}
+
+/* Scroll Y event  */
+.fc-daygrid-day-events {
+  overflow-y: auto;
+  max-height: 70px; /* Adjust as necessary */
+}
+.fc-daygrid-day-top {
+  position: relative;
+  z-index: 2;
+}
+
+/* Event box style */
+.fc-daygrid-day {
+  height: 120px; /* Adjust the height value as needed */
+}
+.fc .fc-daygrid-event-harness{
+  margin-bottom: 2px;
+}
+.fc-daygrid-block-event .fc-event-time, .fc-daygrid-block-event .fc-event-title {
+  padding: 1px 1px 1px 6px;
+}
+
+@media (max-width: 479px) {
+  .fc-daygrid-day {
+    height: 100px; /* Adjust the height value as needed */
+  }
+}
