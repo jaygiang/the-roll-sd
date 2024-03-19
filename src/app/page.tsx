@@ -15,13 +15,16 @@ export default function Home() {
           className="aspect-[2/1]"
         >
           <div className="absolute inset-0 left-20 flex items-center">
-              <h1 className="hero-title text-9xl text-orange-200 font-light">
-                The Roll SD
-              </h1>
+            <h1 className="hero-title text-9xl text-orange-200 font-light">
+              The Roll SD
+            </h1>
           </div>
-        </ParallaxBanner>
+        </ParallaxBanner> 
+        <div className="mt-10">
+        <div className="calendar-title text-2xl text-center text-yellow-500 font-light px-10">Brazilian Jiu-Jitsu tournaments and gatherings in San Diego</div>
+        </div>
+        <CalendarComponent />
       </ParallaxProvider>
-      <CalendarComponent />
     </main>
   );
 }

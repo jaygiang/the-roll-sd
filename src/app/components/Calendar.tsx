@@ -7,29 +7,109 @@ import interactionPlugin from "@fullcalendar/interaction";
 import styles from "./calendar.module.css";
 
 const events = [
-  { title: "Event 1 asdfasdfadsf", date: "2024-03-09" },
-  { title: "Event 3", date: "2024-03-09" },
-  { title: "Event 4", date: "2024-03-09" },
-  { title: "Event 5", date: "2024-03-09" },
-  { title: "Event 5", date: "2024-03-09" },
-  { title: "Event 5", date: "2024-03-09" },
-  { title: "Event 5", date: "2024-03-09" },
-  { title: "Event 5", date: "2024-03-09" },
-  { title: "Event 5", date: "2024-03-09" },
-  { title: "Event 2", date: "2024-03-10" },
-  // Add more events here
+  {
+    title: "NAGA Grappling and BJJ Tournaments",
+    date: "2024-03-23",
+    url: "https://www.nagafighter.com/city/san-diego-ca/",
+    extendedProps: {
+      location: ["10455 Pomerado Rd", "San Diego CA, 92131"],
+    },
+  },
+  {
+    title: "IBJJF San Diego International Open",
+    date: "2024-05-18",
+    url: "https://ibjjf.com/events/san-diego-spring-international-open-ibjjf-jiu-jitsu-championship-2024",
+    extendedProps: {
+      location: [
+        "Harry West Gymnasium",
+        "1313 Park Blvd",
+        "San Diego CA, 92101",
+      ],
+    },
+  },
+  {
+    title: "IBJJF San Diego International Open",
+    date: "2024-05-19",
+    url: "https://ibjjf.com/events/san-diego-spring-international-open-ibjjf-jiu-jitsu-championship-2024",
+    extendedProps: {
+      location: [
+        "Harry West Gymnasium",
+        "1313 Park Blvd",
+        "San Diego CA, 92101",
+      ],
+    },
+  },
+  {
+    title: "Grappling X",
+    date: "2024-05-25",
+    url: "https://grapplingx.smoothcomp.com/en/event/15768",
+    extendedProps: {
+      location: [
+        "Sweetwater High School",
+        "2900 Highland Ave",
+        "National City, CA 91950 ",
+      ],
+    },
+  },
+  {
+    title: "Alliance Jiu-Jitsu San Diego In-House BJJ Tournament IV",
+    date: "2024-06-22",
+    url: "https://alliancesandiegobjjcomp.com/",
+    extendedProps: {
+      location: [
+        "Play by Play Productions",
+        "1601 San Elijo Road",
+        "San Marcos, CA 92078",
+      ],
+    },
+  },
+  {
+    title: "Brave Kids | San Diego III",
+    date: "2024-07-13",
+    url: "https://fs29.formsite.com/bravesports/san-diego-3/index",
+    extendedProps: {
+      location: [
+        "Play by Play Productions",
+        "1601 San Elijo Road",
+        "San Marcos, CA 92078",
+      ],
+    },
+  },
 ];
+
+type Options = {
+  year: "numeric" | "2-digit" | undefined;
+  month: string;
+  day: string;
+};
+
+const formatDate = (dateString: string) => {
+  const options: Options = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+
+  const localDate = new Date(dateString + "T12:00:00");
+
+  return localDate.toLocaleDateString("en-US", options);
+};
 
 const CalendarComponent = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalEventData, setModalEventData] = useState(null);
 
-  const handleEventClick = ({ event }: { event: EventClickArg }) => {
+  const handleEventClick = (clickInfo: EventClickArg) => {
+    const event = clickInfo.event;
+    clickInfo.jsEvent.preventDefault();
+
     setModalEventData({
       title: event.title,
-      date: event.startStr, // or use event.start if you need a Date object
-      // Add any other event data you need for the modal
+      date: formatDate(event.startStr),
+      link: event.url,
+      location: event.extendedProps.location,
     });
+
     setIsModalOpen(true);
   };
 
@@ -45,9 +125,24 @@ const CalendarComponent = () => {
           <button className={styles.closeButton} onClick={onClose}>
             X
           </button>
-          <p>Date: {event.date}</p>
-          <h2>{event.title}</h2>
-          {/* Display other event details here */}
+          <h1>{event.title}</h1>
+          <h2>Date:</h2>
+          <p>{event.date}</p>
+          <h2>Location:</h2>
+          <p>
+            {event.location &&
+              event.location.map((part, index) => (
+                <div key={index}>{part}</div>
+              ))}
+          </p>
+          <a
+            href={event.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="button-class"
+          >
+            Event Link
+          </a>
         </div>
       </div>
     );
@@ -70,7 +165,6 @@ const CalendarComponent = () => {
           eventClick={handleEventClick}
           eventBackgroundColor="#B68D40"
           eventBorderColor="#B68D40"
-          event
         />
       </div>
       <EventModal
