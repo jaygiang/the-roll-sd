@@ -59,6 +59,9 @@ body {
 }
 
 @media (max-width: 479px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
   .fc-daygrid-day {
     height: 100px; /* Adjust the height value as needed */
   }

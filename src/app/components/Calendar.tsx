@@ -54,7 +54,7 @@ const CalendarComponent = () => {
   };
 
   return (
-    <div>
+    <div className="mt-10">
       <div className={styles.calendarContainer}>
         <FullCalendar
           plugins={[dayGridPlugin, interactionPlugin]}

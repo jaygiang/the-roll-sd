@@ -1,9 +1,27 @@
-import CalendarComponent from './components/Calendar';
+"use client";
+import CalendarComponent from "./components/Calendar";
+import { ParallaxProvider } from "react-scroll-parallax";
+import { ParallaxBanner } from "react-scroll-parallax";
 
 export default function Home() {
   return (
     <main className="main">
-        <CalendarComponent />
+      <ParallaxProvider>
+        <ParallaxBanner
+          layers={[
+            { image: "/images/hero-background.jpg", speed: -20 },
+            { image: "/images/hero-foreground.png", speed: -10 },
+          ]}
+          className="aspect-[2/1]"
+        >
+          <div className="absolute inset-0 left-20 flex items-center">
+              <h1 className="hero-title text-9xl text-orange-200 font-light">
+                The Roll SD
+              </h1>
+          </div>
+        </ParallaxBanner>
+      </ParallaxProvider>
+      <CalendarComponent />
     </main>
   );
 }
