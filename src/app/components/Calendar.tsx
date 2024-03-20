@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import FullCalendar from "@fullcalendar/react";
-import EventClickArg from "@fullcalendar/react";
+import { EventClickArg } from '@fullcalendar/core';
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import styles from "./calendar.module.css";
@@ -79,8 +79,8 @@ const events = [
 
 type Options = {
   year: "numeric" | "2-digit" | undefined;
-  month: string;
-  day: string;
+  month: "numeric" | "2-digit" | "long" | "short" | "narrow" | undefined;
+  day: "numeric" | undefined;
 };
 
 const formatDate = (dateString: string) => {
@@ -97,7 +97,7 @@ const formatDate = (dateString: string) => {
 
 const CalendarComponent = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalEventData, setModalEventData] = useState(null);
+  const [modalEventData, setModalEventData] = useState({});
 
   const handleEventClick = (clickInfo: EventClickArg) => {
     const event = clickInfo.event;
@@ -113,7 +113,7 @@ const CalendarComponent = () => {
     setIsModalOpen(true);
   };
 
-  const EventModal = ({ isOpen, onClose, event }) => {
+  const EventModal = ({ isOpen, onClose, event }: { isOpen: boolean, onClose: () => void, event: any }) => {
     if (!isOpen) return null;
 
     return (
@@ -131,7 +131,7 @@ const CalendarComponent = () => {
           <h2>Location:</h2>
           <p>
             {event.location &&
-              event.location.map((part, index) => (
+              event.location.map((part: string, index: number) => (
                 <div key={index}>{part}</div>
               ))}
           </p>
