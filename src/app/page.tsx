@@ -2,10 +2,26 @@
 import CalendarComponent from "./components/Calendar";
 import { ParallaxProvider } from "react-scroll-parallax";
 import { ParallaxBanner } from "react-scroll-parallax";
+import Script from "next/script";
 
 export default function Home() {
   return (
     <main className="main">
+      {/* Global Site Tag (gtag.js) - Google Analytics */}
+      <Script
+        strategy="afterInteractive"
+        src={`https://www.googletagmanager.com/gtag/js?id=G-CJE0H405PY`}
+      />
+      <Script id="gtag-init" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-CJE0H405PY', {
+            page_path: window.location.pathname,
+          });
+        `}
+      </Script>
       <ParallaxProvider>
         <header className="header">
           <ParallaxBanner
