@@ -117,13 +117,13 @@ const CalendarComponent = () => {
     if (!isOpen) return null;
 
     return (
-      <div className={styles.modalOverlay} onClick={onClose}>
+      <summary className={styles.modalOverlay} onClick={onClose}>
         <div
           className={styles.modalContent}
           onClick={(e) => e.stopPropagation()}
         >
           <button className={styles.closeButton} onClick={onClose}>
-            X
+            x
           </button>
           <h1>{event.title}</h1>
           <h2>Date:</h2>
@@ -144,12 +144,12 @@ const CalendarComponent = () => {
             Event Link
           </a>
         </div>
-      </div>
+      </summary>
     );
   };
 
   return (
-    <div className="mt-10">
+    <section className="mt-10">
       <div className={styles.calendarContainer}>
         <FullCalendar
           plugins={[dayGridPlugin, interactionPlugin]}
@@ -172,7 +172,7 @@ const CalendarComponent = () => {
         onClose={() => setIsModalOpen(false)}
         event={modalEventData}
       />
-    </div>
+    </section>
   );
 };
 

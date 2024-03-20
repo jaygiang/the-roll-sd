@@ -65,7 +65,7 @@ body {
 .button-class {
   display: inline-block;
   padding: 10px 20px;
-  margin: 5px;
+  margin-top: 10px;
   background-color: var(--primary-gold); /* Bootstrap primary button color */
   color: white;
   text-align: center;
