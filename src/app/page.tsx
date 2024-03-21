@@ -26,8 +26,8 @@ export default function Home() {
         <header className="header">
           <ParallaxBanner
             layers={[
-              { image: "/images/hero-background.jpg", speed: -20 },
-              { image: "/images/hero-foreground.png", speed: -10 },
+              { image: "/images/hero-background.webp", speed: -20 },
+              { image: "/images/hero-foreground.webp", speed: -10 },
             ]}
             className="aspect-[2/1]"
           >
