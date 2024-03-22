@@ -58,7 +58,7 @@
 }
 
 /* Larger screens */
-@media (min-width: 768px) {
+@media (min-width: 821px) {
   .calendarContainer,
   .eventsList {
     width: 90%;
@@ -71,7 +71,7 @@
 }
 
 /* Medium-sized screens, like tablets */
-@media (min-width: 480px) and (max-width: 767px) {
+@media (min-width: 480px) and (max-width: 820px) {
   .calendarContainer,
   .eventsList {
     width: 90%;

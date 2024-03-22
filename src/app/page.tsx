@@ -26,24 +26,23 @@ export default function Home() {
         <header className="header">
           <ParallaxBanner
             layers={[
-              { image: "/images/hero-background.webp", speed: -20 },
-              { image: "/images/hero-foreground.webp", speed: -10 },
+              { image: "/images/hero-foreground.webp", speed: -20, className:"foregroundImage" },
+              { image: "/images/hero-background.webp", speed: -15, className:"backgroundImage"},
             ]}
             className="aspect-[2/1]"
           >
-            <div className="absolute inset-0 left-20 flex items-center">
-              <h1 className="hero-title text-9xl text-orange-200 font-light">
-                The Roll SD
-              </h1>
-            </div>
           </ParallaxBanner>
         </header>
         <div className="mt-10">
-          <h2 className="calendar-title text-2xl text-center text-yellow-500 font-light px-10">
-            Brazilian Jiu-Jitsu tournaments and gatherings in San Diego
-          </h2>
         </div>
         <CalendarComponent />
+        <footer className="bg-black mt-20 mb-5">
+          <div className="max-w-7xl mx-auto py-4 px-5 flex justify-center text-gray-600">
+            <p className="text-sm text-center">
+              © {new Date().getFullYear()} The Roll SD. All rights reserved.
+            </p>
+          </div>
+        </footer>
       </ParallaxProvider>
     </main>
   );

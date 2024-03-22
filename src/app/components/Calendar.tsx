@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import FullCalendar from "@fullcalendar/react";
-import { EventClickArg } from '@fullcalendar/core';
+import { EventClickArg } from "@fullcalendar/core";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import styles from "./calendar.module.css";
@@ -10,9 +10,13 @@ const events = [
   {
     title: "NAGA Grappling and BJJ Tournaments",
     date: "2024-03-23",
-    url: "https://www.nagafighter.com/city/san-diego-ca/",
+    url: "https://www.nagafighter.com/event/san-diego-grappling-bjj-championship-san-diego-ca-2/",
     extendedProps: {
-      location: ["10455 Pomerado Rd", "San Diego CA, 92131"],
+      location: [
+        "Alliant International University",
+        "10455 Pomerado Rd",
+        "San Diego CA, 92131",
+      ],
     },
   },
   {
@@ -113,7 +117,15 @@ const CalendarComponent = () => {
     setIsModalOpen(true);
   };
 
-  const EventModal = ({ isOpen, onClose, event }: { isOpen: boolean, onClose: () => void, event: any }) => {
+  const EventModal = ({
+    isOpen,
+    onClose,
+    event,
+  }: {
+    isOpen: boolean;
+    onClose: () => void;
+    event: any;
+  }) => {
     if (!isOpen) return null;
 
     return (
