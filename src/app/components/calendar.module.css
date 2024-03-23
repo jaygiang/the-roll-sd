@@ -82,7 +82,7 @@
     padding: 15px;
     border-top: 1px solid #bbb;
   }
-  
+
   .hoveredEvent {
     display: none;
   }
@@ -105,11 +105,10 @@
     display: none;
   }
   .hideEventContent {
-   display: none
+    display: none;
   }
 
-  .fc .fc-media-screen .fc-direction-ltr .fc-theme-standard{
-    height: 100vh
+  .fc .fc-media-screen .fc-direction-ltr .fc-theme-standard {
+    height: 100vh;
   }
-
 }

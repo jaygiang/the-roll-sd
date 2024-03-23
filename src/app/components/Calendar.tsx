@@ -79,6 +79,30 @@ const events = [
       ],
     },
   },
+  {
+    title: "Grappling Industries San Diego",
+    date: "2024-06-22",
+    url: "https://grapplingindustries.smoothcomp.com/en/event/15995",
+    extendedProps: {
+      location: [
+        "Lincoln Senior High School",
+        "4777 Imperial Ave",
+        "San Diego, CA 92113",
+      ],
+    },
+  },
+  {
+    title: "NAGA San Diego Grappling Championship",
+    date: "2024-09-21",
+    url: "https://naga.smoothcomp.com/en/event/15724",
+    extendedProps: {
+      location: [
+        "Alliant International University",
+        "10455 Pomerado Rd",
+        "San Diego CA, 92131",
+      ],
+    },
+  },
 ];
 
 type Options = {

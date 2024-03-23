@@ -6,6 +6,7 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 18, 38, 32;
+  --primary-charcoal: #122620;
   --primary-gold: #d6ad60;
   --secondary-cream: #f4ebd0;
   --secondary-tan: #b68d40;
@@ -110,6 +111,13 @@ body {
 .foregroundImage {
   inset: -40px 0px !important;
 }
+
+.fc .fc-button-primary {
+  background-color: var(--primary-charcoal);
+  border-color: var(--primary-charcoal);
+  color: var(--fc-button-text-color);
+}
+
 
 @media (min-width: 480px) and (max-width: 820px) {
   .hero-title-container {
